@@ -13,6 +13,6 @@ def canUnlockAll(boxes):
     unlocked = {0: True}
     for i, box in enumerate(boxes):
         for key in box:
-            if key != i:
+            if key != i and key < len(boxes):
                 unlocked[key] = True
     return len(unlocked) == len(boxes)
