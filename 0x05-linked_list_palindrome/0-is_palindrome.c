@@ -1,24 +1,5 @@
 #include "lists.h"
 
-/**
- * listint_len - get length of linked list
- * @h:head
- * Return: length
- *
- *
- **/
-size_t listint_len(const listint_t *h)
-{
-	int i = 0;
-
-	while (h)
-	{
-		h = h->next;
-		i++;
-	}
-
-	return (i);
-}
 
 /**
 * is_palindrome - check if linked list is a palindrome
@@ -28,31 +9,29 @@ size_t listint_len(const listint_t *h)
 **/
 int is_palindrome(listint_t **head)
 {
-	listint_t *p, *q;
-	size_t len, x, y = 0;
+	listint_t *temp, *node;
 
 	if (head == NULL)
-		return (0);
-
-	if (*head == NULL)
 		return (1);
 
-	p = *head;
-	len = listint_len(p);
+	if (*head == NULL || (*head)->next == NULL)
+		return (1);
 
-	while (y < len / 2)
+	node = *head;
+	while (node->next)
 	{
-		q = p;
-
-		for (x = y + 1; x < len - y; x++) 
-			q = q->next;
-
-		if (q->n != p->n)
-			return (0);
-
-		p = p->next;
-		y++;
+		node = node->next;
 	}
-
+	temp = *head;
+	while (node >= temp)
+	{
+		if (temp->n == node->n)
+		{
+			temp = temp->next;
+			node -= 2;
+		}
+		else
+			return (0);
+	}
 	return (1);
 }
