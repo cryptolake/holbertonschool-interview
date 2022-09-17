@@ -80,7 +80,10 @@ int test_sandpile(int grid[3][3])
  **/
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
-	int i, j;
+	int l1[] = {1, 1, 0, 0, 0, 2, 2, 0, 2, 2, 0, 1, 1, 0, 1, 2, 2, 1};
+	int l2[] = {1, 1, 0, 1, 1, 0, 1, 2, 2, 1, 0, 0, 0, 2, 2, 0, 2, 2};
+	int *l;
+	int i, j, x = 0;
 
 	for (i = 0; i < 3; i++)
 	{
@@ -89,27 +92,16 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 			grid1[i][j] = grid1[i][j] + grid2[i][j];
 		}
 	}
-	if (test_sandpile(grid1))
-	{
-		printf("=\n");
-		print_grid(grid1);
-	}
 	while (test_sandpile(grid1))
 	{
-		balance_sandpile(grid1, 0, 0);
-		balance_sandpile(grid1, 0, 2);
-		balance_sandpile(grid1, 2, 0);
-		balance_sandpile(grid1, 2, 2);
-		balance_sandpile(grid1, 1, 1);
-		balance_sandpile(grid1, 0, 1);
-		balance_sandpile(grid1, 1, 0);
-		balance_sandpile(grid1, 1, 2);
-		balance_sandpile(grid1, 2, 1);
-		if (!test_sandpile(grid1))
-			break;
-
 		printf("=\n");
 		print_grid(grid1);
-
+		if (x % 2 == 0)
+			l = l2;
+		else
+			l = l1;
+		for (i = 0; i < 17; i += 2)
+			balance_sandpile(grid1, l[i], l[i + 1]);
+		x++;
 	}
 }
