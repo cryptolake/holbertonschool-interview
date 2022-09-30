@@ -6,7 +6,7 @@
  * @exp: exponant
  * Return: Result
  **/
-unsigned long ipow(int base, int exp)
+unsigned long ipow(unsigned long base, unsigned long exp)
 {
 	unsigned long result = 1;
 
