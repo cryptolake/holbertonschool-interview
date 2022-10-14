@@ -12,8 +12,8 @@ int testI(size_t i, int direction, size_t size)
 int testJ(size_t j, int direction, size_t size)
 {
 	if (direction == SLIDE_LEFT)
-		return (j < (size_t)-1);
-	return (j < size);
+		return (j > 0);
+	return (j < size-1);
 
 }
 
