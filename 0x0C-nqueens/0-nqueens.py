@@ -63,6 +63,7 @@ def main():
         print('N must be at least 4')
         exit(1)
 
+    sols = []
     for i in range(N):
         board = [[False for _ in range(N)] for _ in range(N)]
         cols = list(range(N))
@@ -70,7 +71,9 @@ def main():
         cols.insert(0, i)
         if solvenqueen(board, cols, 0, N):
             sol = get_sol(board, N)
-            print(sol)
+            if sol not in sols:
+                sols.append(sol)
+                print(sol)
 
 
 main()
