@@ -37,7 +37,7 @@ def isvalid(board, pos, n):
 
 def solvenqueen(board, cols, col, n):
     """Solve n queen using backtracking."""
-    if col == n:
+    if col >= n:
         return True
     for i in range(n):
         if isvalid(board, (i, cols[col]), n):
@@ -50,6 +50,9 @@ def solvenqueen(board, cols, col, n):
 
 def main():
     """Solve n queen using backtracking."""
+    if len(sys.argv) == 1:
+        print("Usage: nqueens N")
+        exit(1)
     try:
         N = int(sys.argv[1])
     except ValueError:
@@ -60,7 +63,6 @@ def main():
         print('N must be at least 4')
         exit(1)
 
-    sols = []
     for i in range(N):
         board = [[False for _ in range(N)] for _ in range(N)]
         cols = list(range(N))
@@ -68,9 +70,7 @@ def main():
         cols.insert(0, i)
         if solvenqueen(board, cols, 0, N):
             sol = get_sol(board, N)
-            if sol not in sols:
-                sols.append(sol)
-                print(sol)
+            print(sol)
 
 
 main()
