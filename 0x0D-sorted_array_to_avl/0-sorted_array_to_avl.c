@@ -67,6 +67,9 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 	int *check;
 	size_t i;
 	
+	if (!array)
+		return NULL;
+	
 	check = malloc(size * sizeof(int));
 	if (!check)
 		return (NULL);
@@ -77,8 +80,8 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 	if (!head)
 		return (NULL);
 	test = fill_avl_tree(array, head, NULL, size, (size - 1) / 2, check);
+	free(check);
 	if (test == NULL)
 		return (NULL);
-
 	return (head);
 }
