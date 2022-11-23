@@ -66,10 +66,10 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 	avl_t *head, *test;
 	int *check;
 	size_t i;
-	
+
 	if (!array)
-		return NULL;
-	
+		return (NULL);
+
 	check = malloc(size * sizeof(int));
 	if (!check)
 		return (NULL);
