@@ -64,8 +64,12 @@ avl_t *fill_avl_tree(int *array, avl_t *leaf, avl_t *parent,
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
 	avl_t *head, *test;
-	int check[size];
+	int *check;
 	size_t i;
+	
+	check = malloc(size * sizeof(int));
+	if (!check)
+		return (NULL);
 
 	for (i = 0; i < size; i++)
 		check[i] = 0;
