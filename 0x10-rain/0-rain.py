@@ -34,10 +34,11 @@ def rain(walls):
             if w1 == w2:
                 break
             if walls[w1] >= walls[w2]:
-                water += walls[w2] * (w2 - w1 - 1) - inter
+                water += walls[w2] * (w2 - w1 - 1) 
             else:
-                water += walls[w1] * (w2 - w1 - 1) - inter
+                water += walls[w1] * (w2 - w1 - 1) 
             i += w2 - w1
+            print(f"w1: {w1}, w2: {w2}, water: {water}")
         else:
             i += 1
 
