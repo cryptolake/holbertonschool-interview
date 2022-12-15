@@ -49,5 +49,7 @@ int binary_search_rec(int *array, size_t l, size_t r, int value)
  **/
 int advanced_binary(int *array, size_t size, int value)
 {
+	if (!array)
+		return (-1);
 	return (binary_search_rec(array, 0, size - 1, value));
 }
