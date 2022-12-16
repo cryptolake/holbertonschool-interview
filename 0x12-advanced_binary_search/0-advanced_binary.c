@@ -27,13 +27,13 @@ int binary_search_rec(int *array, size_t l, size_t r, int value)
 {
 	size_t mid = l + (r - l) / 2;
 
+	p_search_array(array, l, r);
 	if (l == r)
 	{
 		if (array[l] == value)
 			return (l);
 		return (-1);
 	}
-	p_search_array(array, l, r);
 	if (array[mid] >= value)
 		return (binary_search_rec(array, l, mid, value));
 	else
