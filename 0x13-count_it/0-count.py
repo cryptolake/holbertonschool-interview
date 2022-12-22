@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """Get hot posts from reddit sub."""
 import requests
+import sys
+sys.setrecursionlimit(3000)
 
 
 def count_words(subreddit, word_list, after='', hot_list=None):
@@ -16,7 +18,7 @@ def count_words(subreddit, word_list, after='', hot_list=None):
 
     headers = {'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"}
     url = 'https://www.reddit.com'
-    res = requests.get('{}/r/{}/hot.json?after={}?limit=100'
+    res = requests.get('{}/r/{}/hot.json?after={}'
                        .format(url, subreddit, after), headers=headers,
                        allow_redirects=False)
 
