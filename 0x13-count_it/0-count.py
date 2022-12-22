@@ -7,8 +7,9 @@ def count_words(subreddit, word_list, after='', hot_list={}):
     """Get posts of sub."""
     headers = {'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"}
     url = 'https://www.reddit.com'
-    res = requests.get(f'{url}/r/{subreddit}/hot.json?after={after}?limit=100',
-                       headers=headers, allow_redirects=False)
+    res = requests.get('{}/r/{}/hot.json?after={}?limit=100'
+                       .format(url, subreddit, after), headers=headers,
+                       allow_redirects=False)
     if res.status_code == 302:
         return None
     rj = res.json()
