@@ -2,7 +2,7 @@
 """Get hot posts from reddit sub."""
 import requests
 import sys
-sys.setrecursionlimit(3000)
+sys.setrecursionlimit(5000)
 
 
 def count_words(subreddit, word_list, after='', hot_list=None):
