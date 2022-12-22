@@ -6,7 +6,7 @@ import requests
 def count_words(subreddit, word_list, after='', hot_list=None):
     """Get posts of sub."""
     if hot_list is None:
-        hot_list = {item: 0 for item in word_list}
+        hot_list = {item.lower(): 0 for item in word_list}
 
     if after is None:
         for word in sorted(hot_list, key=lambda x: hot_list[x])[::-1]:
