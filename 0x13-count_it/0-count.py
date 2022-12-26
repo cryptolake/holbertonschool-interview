@@ -28,8 +28,7 @@ def count_words(subreddit, word_list, after='', hot_list=None):
         for post in rj['data']['children']:
             title = post['data']['title'].lower().split(' ')
             for word in word_list:
-                if word in title:
-                    hot_list[word] += 1
+                hot_list[word] += title.count(word)
 
         return count_words(subreddit, word_list, rj['data']['after'], hot_list)
     return None
