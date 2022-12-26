@@ -10,7 +10,7 @@ def count_words(subreddit, word_list, after='', hot_list=None):
         hot_list = {item: 0 for item in word_list}
 
     if after is None:
-        for word in sorted(hot_list, key=lambda x: (hot_list[x], x))[::-1]:
+        for word in sorted(hot_list, key=lambda x: (-hot_list[x], x)):
             if hot_list[word] != 0:
                 print("{}: {}".format(word, hot_list[word]))
         return None

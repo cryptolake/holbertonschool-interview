@@ -23,6 +23,7 @@ def rain(walls):
         w = walls[i]
         if w > 0:
             w1 = i
+            w2 = i+1
             j = i + 1
             while j < len(walls):
                 if walls[j] != 0:
@@ -34,9 +35,9 @@ def rain(walls):
             if w1 == w2:
                 break
             if walls[w1] >= walls[w2]:
-                water += walls[w2] * (w2 - w1 - 1) 
+                water += walls[w2] * (w2 - w1 - 1)
             else:
-                water += walls[w1] * (w2 - w1 - 1) 
+                water += walls[w1] * (w2 - w1 - 1)
             i += w2 - w1
             print(f"w1: {w1}, w2: {w2}, water: {water}")
         else:
