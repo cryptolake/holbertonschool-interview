@@ -34,14 +34,9 @@ void heap_rebalance(heap_t *root)
 {
 	heap_t *lchild = root->left, *rchild = root->right;
 
-	if (root->left == NULL || root->right == NULL)
+	if (lchild == NULL || rchild == NULL)
 		return;
 
-	if (root->parent == NULL)
-	{
-		heap_rebalance(root->left);
-		heap_rebalance(root->right);
-	}
 	if (lchild->left == NULL && rchild->left != NULL)
 	{
 		lchild->left = rchild->left;
