@@ -1,5 +1,10 @@
 #include "binary_trees.h"
 
+/**
+* get_down - get the root to the last element.
+* @root: root
+* Return: last elemnt
+*/
 heap_t *get_down(heap_t *root)
 {
 	heap_t *child;
@@ -20,9 +25,15 @@ heap_t *get_down(heap_t *root)
 	return (get_down(child));
 }
 
+/**
+* heap_rebalance - rebalance heap by checking if
+* left nodes have more or the same nodes as right nodes
+* @root: root of heap
+**/
 void heap_rebalance(heap_t *root)
 {
 	heap_t *lchild = root->left, *rchild = root->right;
+
 	if (root->left == NULL || root->right == NULL)
 		return;
 
@@ -67,5 +78,5 @@ int heap_extract(heap_t **root)
 		last->parent->left = NULL;
 	free(last);
 	heap_rebalance(*root);
-	return n;
+	return (n);
 }
