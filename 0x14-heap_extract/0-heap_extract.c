@@ -72,6 +72,6 @@ int heap_extract(heap_t **root)
 	else
 		last->parent->left = NULL;
 	free(last);
-	heap_rebalance(*root);
+	/* heap_rebalance(*root); */
 	return (n);
 }
