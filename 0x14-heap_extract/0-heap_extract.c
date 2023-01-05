@@ -34,7 +34,7 @@ void heap_rebalance(heap_t *root)
 {
 	heap_t *lchild = root->left, *rchild = root->right;
 
-	if (lchild == NULL || rchild == NULL)
+	if (rchild == NULL)
 		return;
 
 	if (lchild->left == NULL && rchild->left != NULL)
@@ -72,6 +72,6 @@ int heap_extract(heap_t **root)
 	else
 		last->parent->left = NULL;
 	free(last);
-	/* heap_rebalance(*root); */
+	heap_rebalance(*root);
 	return (n);
 }
