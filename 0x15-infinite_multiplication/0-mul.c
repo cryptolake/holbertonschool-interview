@@ -52,7 +52,7 @@ int *make_num(char *num)
 res calculate(int *num1, int *num2, ssize_t n1, ssize_t n2)
 {
 	ssize_t n = n1 + n2 - 1, i, j;
-	int dec, dig;
+	int dec = 0, dig = 0;
 	res num;
 
 	num.over = 0;
@@ -62,6 +62,8 @@ res calculate(int *num1, int *num2, ssize_t n1, ssize_t n2)
 	for (i = 0; i < n; i++)
 		num.num[i] = 0;
 	num.len = n;
+	for (i = 0; i < n; i++)
+		num.num[i] = 0;
 	for (i = n1 - 1; i > -1; i--)
 	{
 		for (j = n2 - 1; j > -1; j--)
@@ -70,7 +72,7 @@ res calculate(int *num1, int *num2, ssize_t n1, ssize_t n2)
 		}
 	}
 
-	for (i = n; i > -1; i--)
+	for (i = n-1; i > -1; i--)
 	{
 		dig = num.num[i] % 10;
 		dec  = num.num[i] / 10;
