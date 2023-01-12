@@ -72,7 +72,7 @@ res calculate(int *num1, int *num2, ssize_t n1, ssize_t n2)
 		}
 	}
 
-	for (i = n-1; i > -1; i--)
+	for (i = n - 1; i > -1; i--)
 	{
 		dig = num.num[i] % 10;
 		dec  = num.num[i] / 10;
