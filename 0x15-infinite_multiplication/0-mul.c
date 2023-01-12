@@ -105,6 +105,21 @@ void _puts(char *str)
 }
 
 /**
+ * collapse_zero - remove leading zeros
+ *
+ * @num: struct of number
+ * Return: struct of number
+ **/
+size_t collapse_zero(res num)
+{
+	ssize_t i = 0;
+
+	while (num.num[i] == 0 && i < num.len-1)
+		i++;
+	return (i);
+}
+
+/**
 * main - main function to run
 * @argc: number of arguments
 * @argv: arguments
@@ -112,7 +127,7 @@ void _puts(char *str)
 **/
 int main(int argc, char *argv[])
 {
-	ssize_t i;
+	ssize_t i, begin;
 	int *num1, *num2;
 	res num;
 
@@ -135,9 +150,10 @@ int main(int argc, char *argv[])
 		_puts("Error");
 		return (98);
 	}
+	begin = collapse_zero(num);
 	if (num.over != 0)
 		_putchar(num.over + '0');
-	for (i = 0; i < num.len; i++)
+	for (i = begin; i < num.len; i++)
 		_putchar(num.num[i] + '0');
 	_putchar('\n');
 	free(num.num);
