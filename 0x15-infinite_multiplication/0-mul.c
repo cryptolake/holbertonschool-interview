@@ -114,7 +114,7 @@ size_t collapse_zero(res num)
 {
 	ssize_t i = 0;
 
-	while (num.num[i] == 0 && i < num.len-1)
+	while (num.num[i] == 0 && i < num.len - 1)
 		i++;
 	return (i);
 }
