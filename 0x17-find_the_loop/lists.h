@@ -8,6 +8,7 @@
  * struct listint_s - singly linked list
  * @n: integer
  * @next: points to the next node
+ * @visited: check if node is visited before
  *
  * Description: singly linked list node structure
  * for Holberton project
@@ -16,6 +17,7 @@ typedef struct listint_s
 {
 	int n;
 	struct listint_s *next;
+	int visited;
 } listint_t;
 
 listint_t *add_nodeint(listint_t **head, const int n);
