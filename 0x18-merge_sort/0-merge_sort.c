@@ -77,6 +77,7 @@ void rec_merge_sort(int *array, int *T, size_t x, size_t z)
 void merge_sort(int *array, size_t size)
 {
 	int *temp = malloc(sizeof(int) * size);
-	rec_merge_sort(array, temp, 0, size - 1);
+	if (array != NULL)
+		rec_merge_sort(array, temp, 0, size - 1);
 	free(temp);
 }
