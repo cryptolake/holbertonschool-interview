@@ -8,10 +8,9 @@
  * @y: pointer for the end of the first array
  * @z: pointer for the end of the second array
  **/
-void merge(int *A, size_t x, size_t y, size_t z)
+void merge(int *A, int *temp, size_t x, size_t y, size_t z)
 {
 	size_t i = x, j = y + 1, k;
-	int *temp = malloc(sizeof(int) * (z - x + 1));
 
 	printf("Merging...\n");
 	printf("[left]: ");
@@ -41,8 +40,6 @@ void merge(int *A, size_t x, size_t y, size_t z)
 
 	printf("[Done]: ");
 	print_array(A + x, z - x + 1);
-
-	free(temp);
 }
 
 /**
@@ -52,7 +49,7 @@ void merge(int *A, size_t x, size_t y, size_t z)
  * @x: start pointer
  * @z: end pointer
  **/
-void rec_merge_sort(int *array, size_t x, size_t z)
+void rec_merge_sort(int *array, int *T, size_t x, size_t z)
 {
 	/* this is the middle pointer */
 	size_t y;
@@ -67,9 +64,9 @@ void rec_merge_sort(int *array, size_t x, size_t z)
 
 	/* printf("%zu %zu | %zu %zu\n", x, y, y + 1, z); */
 
-	rec_merge_sort(array, x, y);
-	rec_merge_sort(array, y + 1, z);
-	merge(array, x, y, z);
+	rec_merge_sort(array, T, x, y);
+	rec_merge_sort(array, T, y + 1, z);
+	merge(array, T, x, y, z);
 }
 
 /**
@@ -79,5 +76,7 @@ void rec_merge_sort(int *array, size_t x, size_t z)
 **/
 void merge_sort(int *array, size_t size)
 {
-	rec_merge_sort(array, 0, size - 1);
+	int *temp = malloc(sizeof(int) * size);
+	rec_merge_sort(array, temp, 0, size - 1);
+	free(temp);
 }
