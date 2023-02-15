@@ -4,6 +4,7 @@
  * merge - merge both inter-arrays
  *
  * @A: main array
+ * @temp: temporary array
  * @x: pointer for the start of the first array
  * @y: pointer for the end of the first array
  * @z: pointer for the end of the second array
@@ -46,6 +47,7 @@ void merge(int *A, int *temp, size_t x, size_t y, size_t z)
  * rec_merge_sort - recursive merge sort
  *
  * @array: array to sort
+ * @T: temporary array
  * @x: start pointer
  * @z: end pointer
  **/
@@ -77,6 +79,7 @@ void rec_merge_sort(int *array, int *T, size_t x, size_t z)
 void merge_sort(int *array, size_t size)
 {
 	int *temp = malloc(sizeof(int) * size);
+
 	if (array != NULL)
 		rec_merge_sort(array, temp, 0, size - 1);
 	free(temp);
