@@ -11,7 +11,7 @@
 void merge(int *A, size_t x, size_t y, size_t z)
 {
 	size_t i = x, j = y + 1, k;
-	int temp[z - x + 1];
+	int *temp = malloc(sizeof(int) * (z - x + 1));
 
 	printf("Merging...\n");
 	printf("[left]: ");
@@ -41,6 +41,8 @@ void merge(int *A, size_t x, size_t y, size_t z)
 
 	printf("[Done]: ");
 	print_array(A + x, z - x + 1);
+
+	free(temp);
 }
 
 /**
