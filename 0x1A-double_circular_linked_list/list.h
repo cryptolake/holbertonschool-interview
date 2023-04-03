@@ -1,6 +1,7 @@
 #ifndef LIST
 #define LIST
 #include <stddef.h>
+#include <string.h>
 #include <stdlib.h>
 
 /**
