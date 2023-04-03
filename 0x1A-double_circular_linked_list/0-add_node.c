@@ -33,7 +33,7 @@ List *add_node_end(List **list, char *str)
 
 	end->next = new;
 	begin->prev = new;
-	
+
 	return (new);
 }
 
@@ -63,7 +63,7 @@ List *add_node_begin(List **list, char *str)
 
 	begin = *list;
 	end = begin->prev;
-	
+
 
 	new->next = begin;
 	new->prev = end;
