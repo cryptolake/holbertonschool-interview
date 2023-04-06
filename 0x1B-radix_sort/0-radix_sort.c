@@ -80,6 +80,12 @@ void radix_sort(int *array, size_t size)
 {
 	int radix = 1, max = get_max(array, size);
 
+	if (array == NULL)
+		return;
+
+	if (size == 1)
+		return;
+
 	while (max != 0)
 	{
 		counting_sort(array, size, radix);
