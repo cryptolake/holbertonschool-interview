@@ -4,7 +4,7 @@
 
 def is_valid(x, y, grid):
     """Test if x, y coordinate are valid."""
-    line, col = len(grid), len(grid[0])
+    line, col = len(grid) - 1, len(grid[0]) - 1
 
     if x > line or y > col or x < 0 or y < 0:
         return False
