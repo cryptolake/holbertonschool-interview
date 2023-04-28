@@ -69,8 +69,8 @@ int is_balanced(const binary_tree_t *tree)
 
 	if (abs(tree_height(tree->right) - tree_height(tree->left)) > 1)
 		return (0);
-	
-	return is_balanced(tree->right) && is_balanced(tree->left);
+
+	return (is_balanced(tree->right) && is_balanced(tree->left));
 }
 
 /**
