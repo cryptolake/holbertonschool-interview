@@ -28,8 +28,8 @@ int is_BST(const binary_tree_t *tree, int min, int max)
 	if (tree->n < min || tree->n > max)
 		return (0);
 
-	return (is_BST(tree->left, min, tree->n) &&
-			is_BST(tree->right, tree->n, max));
+	return (is_BST(tree->left, min, tree->n - 1) &&
+			is_BST(tree->right, tree->n + 1, max));
 }
 
 /**
@@ -45,10 +45,8 @@ int balance_factor(const binary_tree_t *tree)
 	if (tree == NULL)
 		return (0);
 
-	if (tree->right != NULL)
-		right = 1 + balance_factor(tree->right);
-	if (tree->left != NULL)
-		left = 1 + balance_factor(tree->left);
+	right = 1 + balance_factor(tree->right);
+	left = 1 + balance_factor(tree->left);
 
 	return (abs(right - left));
 }
