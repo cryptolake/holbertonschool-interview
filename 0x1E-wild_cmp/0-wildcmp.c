@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 
 int compress_wild(char *s)
 {
