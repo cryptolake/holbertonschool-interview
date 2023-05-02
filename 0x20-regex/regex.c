@@ -1,6 +1,12 @@
 #include "regex.h"
 #include <sys/types.h>
 
+/**
+ * regex_match - match regex '.' and '*'
+ * @str: string to match
+ * @pattern: pattern to match
+ * Return: 1 matched, 0 unmatched
+ **/
 int regex_match(char const *str, char const *pattern)
 {
 	ssize_t i = strlen(str) - 1, j = strlen(pattern) - 1;
@@ -14,7 +20,7 @@ int regex_match(char const *str, char const *pattern)
 		}
 		else if (pattern[j] == '*')
 		{
-			if (pattern[j-1] == str[i] || pattern[j-1] == '.')
+			if (pattern[j - 1] == str[i] || pattern[j - 1] == '.')
 				i--;
 			else
 				j -= 2;
