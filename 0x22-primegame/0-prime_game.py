@@ -74,6 +74,9 @@ def isWinner(x, nums):
     """Determine winner."""
     scores = {"Maria": 0, "Ben": 0}
 
+    if x < 1:
+        return None
+
     for r in range(x):
         n_set = set(range(1, nums[r]+1))
         p_set = getPrimes(n_set)
