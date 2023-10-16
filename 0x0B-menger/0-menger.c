@@ -65,6 +65,9 @@ void menger(int level)
 	char **sqr;
 	sponge spg;
 
+	if (level < 0)
+		return;
+
 	sqr = malloc(sizeof(char *) * size);
 	if (!sqr)
 		return;
